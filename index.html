@@ -61,11 +61,11 @@ Introduction</h2>
 <p>Welcome to JNIpp library which uses the power of C++ to give you better Java native interface.</p>
 <p>JNIpp key features:</p>
 <ul>
-<li>C++ wrappers for basic Java classes like Object, String or Class. There are also wrappers for arrays. See <a class="el" href="namespacejni.html" title="Contains Java Native Interface functions.">jni</a> namespace.</li>
-<li>Live class concept to implement classes that can be called from Java. See <a class="el" href="classjava_1_1_object.html" title="The Object class, root of all.">java::Object</a>.</li>
-<li>Macros to simplify creation of your own wrapper and live classes. See <a class="el" href="_java_binding_8h.html" title="Provides macros for implementing live and wrapper classes.">JavaBinding.h</a>.</li>
-<li>Exception translation: Java exceptions are converted to C++ exceptions and vice versa. See <a class="el" href="namespacejni.html#af6d9f91de6771dfcc4f054de3f57cfa3" title="Converts currently pending Java exception to C++ exception.">jni::TranslateJavaException()</a> and <a class="el" href="namespacejni.html#af790ec543aef609054f045ed592498d8" title="Converts current C++ exception to the Java exception and raises it using jni::Throw().">jni::TranslateCppException()</a>.</li>
-<li>C++ style casts Java objects. See <a class="el" href="namespacejava.html#ad188b3fda8e7e48f19ce7f9a5c0a6836" title="Checks and casts object to OtherObjectType.">java::Cast()</a> and <a class="el" href="namespacejava.html#accea5ca6dba86cf2de2147513a3e119f" title="Checks whether object can be cast to OtherObjectType.">java::IsInstanceOf()</a>.</li>
+<li>C++ wrappers for basic Java classes like Object, String or Class. There are also wrappers for arrays. See <a class="el" href="a00034.html" title="Contains Java Native Interface functions.">jni</a> namespace.</li>
+<li>Live class concept to implement classes that can be called from Java. See <a class="el" href="a00015.html" title="The Object class, root of all.">java::Object</a>.</li>
+<li>Macros to simplify creation of your own wrapper and live classes. See <a class="el" href="a00026.html" title="Provides macros for implementing live and wrapper classes.">JavaBinding.h</a>.</li>
+<li>Exception translation: Java exceptions are converted to C++ exceptions and vice versa. See <a class="el" href="a00034.html#af6d9f91de6771dfcc4f054de3f57cfa3" title="Converts currently pending Java exception to C++ exception.">jni::TranslateJavaException()</a> and <a class="el" href="a00034.html#af790ec543aef609054f045ed592498d8" title="Converts current C++ exception to the Java exception and raises it using jni::Throw().">jni::TranslateCppException()</a>.</li>
+<li>C++ style casts Java objects. See <a class="el" href="a00032.html#ad188b3fda8e7e48f19ce7f9a5c0a6836" title="Checks and casts object to OtherObjectType.">java::Cast()</a> and <a class="el" href="a00032.html#accea5ca6dba86cf2de2147513a3e119f" title="Checks whether object can be cast to OtherObjectType.">java::IsInstanceOf()</a>.</li>
 </ul>
 <p>Start exploring JNIpp by looking at the <a href="examples.html">examples</a>.</p>
 <p>See <code>android/samples/HelloJNIpp</code> for Android-specific example that features native Activity, native custom draw View and natively handled Button.</p>
@@ -91,21 +91,21 @@ Installation</h2>
 <li>Add the following to your Application.mk: <div class="fragment"><pre class="fragment">     APP_CPPFLAGS := -fexceptions
      APP_STL := gnustl_static
 </pre></div> See <code>android/samples/HelloJNIpp/jni/Application.mk</code> for example.</li>
-<li><code> #include &lt;<a class="el" href="_j_n_ipp_8h.html" title="Main include file for the JNIpp library.">JNIpp.h</a>&gt; </code> in your header and source files.</li>
+<li><code> #include &lt;<a class="el" href="a00023.html" title="Main include file for the JNIpp library.">JNIpp.h</a>&gt; </code> in your header and source files.</li>
 </ul>
 <h2><a class="anchor" id="Issues"></a>
 Issues</h2>
 <p>Currently library has the following issues:</p>
 <ul>
-<li>No support for MonitorEnter/MonitorExit. That will definitely be fixed in the next release. For now you have to use raw functions from JNIEnv: <code> <a class="el" href="namespacejni.html#a52b686be689da322ecad5eeb45f52213" title="Returns JNIEnv* for the current thread.">jni::GetEnv()</a>-&gt;MonitorEnter(obj.GetJObject()). </code> Wrap calls in RAII object!</li>
-<li>No support for GetElements/SetElements in <a class="el" href="classjava_1_1_primitive_array.html" title="Wrapper for primitive arrays (like int[]).">java::PrimitiveArray</a>. Use Get/ReleaseXXXArrayElements from <a class="el" href="namespacejni.html" title="Contains Java Native Interface functions.">jni</a> namespace (e.g. <a class="el" href="namespacejni.html#acd00bc6a88aadbfe78a3a0eae755b319" title="Retrieves and locks int array elements.">jni::GetIntArrayElements</a>).</li>
+<li>No support for MonitorEnter/MonitorExit. That will definitely be fixed in the next release. For now you have to use raw functions from JNIEnv: <code> <a class="el" href="a00034.html#a52b686be689da322ecad5eeb45f52213" title="Returns JNIEnv* for the current thread.">jni::GetEnv()</a>-&gt;MonitorEnter(obj.GetJObject()). </code> Wrap calls in RAII object!</li>
+<li>No support for GetElements/SetElements in <a class="el" href="a00018.html" title="Wrapper for primitive arrays (like int[]).">java::PrimitiveArray</a>. Use Get/ReleaseXXXArrayElements from <a class="el" href="a00034.html" title="Contains Java Native Interface functions.">jni</a> namespace (e.g. <a class="el" href="a00034.html#acd00bc6a88aadbfe78a3a0eae755b319" title="Retrieves and locks int array elements.">jni::GetIntArrayElements</a>).</li>
 <li>Other issues, see numerous TODOs in the source files. </li>
 </ul>
 </div></div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="footer">Generated on Thu Jun 9 2011 00:20:03 for JNIpp by&#160;
+      <li class="footer">Generated on Thu Jun 9 2011 01:07:48 for JNIpp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
     </ul>

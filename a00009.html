@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>JNIpp: Examples</title>
+<title>JNIpp: NativeSoundException.java</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -34,7 +34,7 @@ $(document).ready(initResizable);
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
-      <li class="current"><a href="examples.html"><span>Examples</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
     </ul>
   </div>
 </div>
@@ -48,39 +48,29 @@ $(document).ready(initResizable);
   </div>
 </div>
 <script type="text/javascript">
-  initNavTree('examples.html','');
+  initNavTree('a00009.html','');
 </script>
 <div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">Examples</div>  </div>
+<div class="title">NativeSoundException.java</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock">Here is a list of all examples:</div><ul>
-<li><a class="el" href="a00002.html">EmailValidator.cpp</a></li>
+<div class="fragment"><pre class="fragment">
+<span class="comment">/* Thrown when NativeSound class encounters problems.</span>
+<span class="comment"> */</span>
+<span class="keyword">public</span> <span class="keyword">class </span>NativeSoundException <span class="keyword">extends</span> Exception {
 
-<li><a class="el" href="a00001.html">EmailValidator.h</a></li>
-
-<li><a class="el" href="a00004.html">LiveThread.cpp</a></li>
-
-<li><a class="el" href="a00003.html">LiveThread.h</a></li>
-
-<li><a class="el" href="a00005.html">LiveThreadJava.java</a></li>
-
-<li><a class="el" href="a00007.html">NativeSound.cpp</a></li>
-
-<li><a class="el" href="a00006.html">NativeSound.h</a></li>
-
-<li><a class="el" href="a00008.html">NativeSound.java</a></li>
-
-<li><a class="el" href="a00009.html">NativeSoundException.java</a></li>
-
-</ul>
+    NativeSoundException(String message) {
+        super(message);
+    }
+}
+</pre></div> </div>
 </div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="footer">Generated on Thu Jun 9 2011 01:07:49 for JNIpp by&#160;
+      <li class="footer">Generated on Thu Jun 9 2011 01:07:48 for JNIpp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </li>
     </ul>

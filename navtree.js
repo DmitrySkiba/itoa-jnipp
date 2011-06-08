@@ -3,67 +3,67 @@ var NAVTREE =
   [ "JNIpp", "index.html", [
     [ "Home", "index.html", null ],
     [ "Class List", "annotated.html", [
-      [ "jni::AbstractObject", "classjni_1_1_abstract_object.html", null ],
-      [ "java::CharSequence", "classjava_1_1_char_sequence.html", null ],
-      [ "java::Class", "classjava_1_1_class.html", null ],
-      [ "java::Exception", "classjava_1_1_exception.html", null ],
-      [ "jni::LObject", "classjni_1_1_l_object.html", null ],
-      [ "java::Object", "classjava_1_1_object.html", null ],
-      [ "java::ObjectArray< ObjectType >", "classjava_1_1_object_array.html", null ],
-      [ "java::ObjectPointer< ObjectType >", "classjava_1_1_object_pointer.html", null ],
-      [ "java::PrimitiveArray< JType >", "classjava_1_1_primitive_array.html", null ],
-      [ "java::RuntimeException", "classjava_1_1_runtime_exception.html", null ],
-      [ "java::String", "classjava_1_1_string.html", null ],
-      [ "java::Throwable", "classjava_1_1_throwable.html", null ],
-      [ "jni::VarArgs", "classjni_1_1_var_args.html", null ]
+      [ "jni::AbstractObject", "a00010.html", null ],
+      [ "java::CharSequence", "a00011.html", null ],
+      [ "java::Class", "a00012.html", null ],
+      [ "java::Exception", "a00013.html", null ],
+      [ "jni::LObject", "a00014.html", null ],
+      [ "java::Object", "a00015.html", null ],
+      [ "java::ObjectArray< ObjectType >", "a00016.html", null ],
+      [ "java::ObjectPointer< ObjectType >", "a00017.html", null ],
+      [ "java::PrimitiveArray< JType >", "a00018.html", null ],
+      [ "java::RuntimeException", "a00019.html", null ],
+      [ "java::String", "a00020.html", null ],
+      [ "java::Throwable", "a00021.html", null ],
+      [ "jni::VarArgs", "a00022.html", null ]
     ] ],
     [ "Class Index", "classes.html", null ],
     [ "Class Hierarchy", "hierarchy.html", [
-      [ "jni::AbstractObject", "classjni_1_1_abstract_object.html", [
-        [ "java::Object", "classjava_1_1_object.html", [
-          [ "java::CharSequence", "classjava_1_1_char_sequence.html", [
-            [ "java::String", "classjava_1_1_string.html", null ]
+      [ "jni::AbstractObject", "a00010.html", [
+        [ "java::Object", "a00015.html", [
+          [ "java::CharSequence", "a00011.html", [
+            [ "java::String", "a00020.html", null ]
           ] ],
-          [ "java::Class", "classjava_1_1_class.html", null ],
-          [ "java::ObjectArray< ObjectType >", "classjava_1_1_object_array.html", null ],
-          [ "java::PrimitiveArray< JType >", "classjava_1_1_primitive_array.html", null ],
-          [ "java::Throwable", "classjava_1_1_throwable.html", [
-            [ "java::Exception", "classjava_1_1_exception.html", [
-              [ "java::RuntimeException", "classjava_1_1_runtime_exception.html", null ]
+          [ "java::Class", "a00012.html", null ],
+          [ "java::ObjectArray< ObjectType >", "a00016.html", null ],
+          [ "java::PrimitiveArray< JType >", "a00018.html", null ],
+          [ "java::Throwable", "a00021.html", [
+            [ "java::Exception", "a00013.html", [
+              [ "java::RuntimeException", "a00019.html", null ]
             ] ]
           ] ]
         ] ],
-        [ "java::ObjectPointer< ObjectType >", "classjava_1_1_object_pointer.html", null ],
-        [ "jni::LObject", "classjni_1_1_l_object.html", null ]
+        [ "java::ObjectPointer< ObjectType >", "a00017.html", null ],
+        [ "jni::LObject", "a00014.html", null ]
       ] ],
-      [ "jni::VarArgs", "classjni_1_1_var_args.html", null ]
+      [ "jni::VarArgs", "a00022.html", null ]
     ] ],
     [ "Class Members", "functions.html", null ],
     [ "Namespace List", "namespaces.html", [
-      [ "java", "namespacejava.html", null ],
-      [ "jb", "namespacejb.html", null ],
-      [ "jni", "namespacejni.html", null ]
+      [ "java", "a00032.html", null ],
+      [ "jb", "a00033.html", null ],
+      [ "jni", "a00034.html", null ]
     ] ],
     [ "Namespace Members", "namespacemembers.html", null ],
     [ "File List", "files.html", [
-      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp.h", "_j_n_ipp_8h.html", null ],
-      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp/JavaArray.h", "_java_array_8h.html", null ],
-      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp/JavaBinding.h", "_java_binding_8h.html", null ],
-      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp/JavaLang.h", "_java_lang_8h.html", null ],
-      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp/JavaNI.h", "_java_n_i_8h.html", null ],
-      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp/JavaObject.h", "_java_object_8h.html", null ],
-      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp/JavaObjectPointer.h", "_java_object_pointer_8h.html", null ]
+      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp.h", "a00023.html", null ],
+      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp/JavaArray.h", "a00025.html", null ],
+      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp/JavaBinding.h", "a00026.html", null ],
+      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp/JavaLang.h", "a00027.html", null ],
+      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp/JavaNI.h", "a00028.html", null ],
+      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp/JavaObject.h", "a00030.html", null ],
+      [ "/Volumes/E/Github/itoa-jnipp/include/JNIpp/JavaObjectPointer.h", "a00031.html", null ]
     ] ],
     [ "Examples", "examples.html", [
-      [ "EmailValidator.cpp", "_email_validator_8cpp-example.html", null ],
-      [ "EmailValidator.h", "_email_validator_8h-example.html", null ],
-      [ "LiveThread.cpp", "_live_thread_8cpp-example.html", null ],
-      [ "LiveThread.h", "_live_thread_8h-example.html", null ],
-      [ "LiveThreadJava.java", "_live_thread_java_8java-example.html", null ],
-      [ "NativeSound.cpp", "_native_sound_8cpp-example.html", null ],
-      [ "NativeSound.h", "_native_sound_8h-example.html", null ],
-      [ "NativeSound.java", "_native_sound_8java-example.html", null ],
-      [ "NativeSoundException.java", "_native_sound_exception_8java-example.html", null ]
+      [ "EmailValidator.cpp", "a00002.html", null ],
+      [ "EmailValidator.h", "a00001.html", null ],
+      [ "LiveThread.cpp", "a00004.html", null ],
+      [ "LiveThread.h", "a00003.html", null ],
+      [ "LiveThreadJava.java", "a00005.html", null ],
+      [ "NativeSound.cpp", "a00007.html", null ],
+      [ "NativeSound.h", "a00006.html", null ],
+      [ "NativeSound.java", "a00008.html", null ],
+      [ "NativeSoundException.java", "a00009.html", null ]
     ] ],
     [ "File Members", "globals.html", null ]
   ] ]

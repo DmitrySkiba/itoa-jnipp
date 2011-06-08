@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>JNIpp: Namespace List</title>
+<title>JNIpp: LiveThreadJava.java</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -31,16 +31,10 @@ $(document).ready(initResizable);
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li class="current"><a href="namespaces.html"><span>Namespace&#160;List</span></a></li>
-      <li><a href="namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
     </ul>
   </div>
 </div>
@@ -54,19 +48,50 @@ $(document).ready(initResizable);
   </div>
 </div>
 <script type="text/javascript">
-  initNavTree('namespaces.html','');
+  initNavTree('a00005.html','');
 </script>
 <div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">Namespace List</div>  </div>
+<div class="title">LiveThreadJava.java</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock">Here is a list of all documented namespaces with brief descriptions:</div><table>
-  <tr><td class="indexkey"><a class="el" href="a00032.html">java</a></td><td class="indexvalue">Contains <a class="el" href="a00015.html" title="The Object class, root of all.">java::Object</a> and basic wrapper classes </td></tr>
-  <tr><td class="indexkey"><a class="el" href="a00033.html">jb</a></td><td class="indexvalue">Contains implementation details of JB_ macros; see <a class="el" href="a00026.html" title="Provides macros for implementing live and wrapper classes.">JavaBinding.h</a> for the list </td></tr>
-  <tr><td class="indexkey"><a class="el" href="a00034.html">jni</a></td><td class="indexvalue">Contains Java Native Interface functions </td></tr>
-</table>
+<div class="fragment"><pre class="fragment">
+<span class="comment">/* Java counterpart of LiveThread live class.</span>
+<span class="comment"> * See examples/LiveThread.h</span>
+<span class="comment"> */</span>
+<span class="keyword">public</span> <span class="keyword">class </span>LiveThreadJava <span class="keyword">extends</span> Thread {
+
+    <span class="comment">/* Constructors are private to disallow</span>
+<span class="comment">     *  instantiation by Java code.</span>
+<span class="comment">     */</span>
+    <span class="keyword">private</span> LiveThreadJava() {
+        super();
+    }
+    <span class="keyword">private</span> LiveThreadJava(String name) {
+        super(name);
+    }
+
+    
+    <span class="comment">/* run() is implemented in native code.</span>
+<span class="comment">     */</span>
+    <span class="keyword">public</span> native <span class="keywordtype">void</span> run();
+    
+    
+    <span class="comment">/* These two things are needed for live class operation:</span>
+<span class="comment">     * - finalize() destroys native object</span>
+<span class="comment">     * - nativeInstance provides storage for native object</span>
+<span class="comment">     *</span>
+<span class="comment">     * Note: implementation for finalize() provided by</span>
+<span class="comment">     *  JB_DEFINE_LIVE_CLASS macro.</span>
+<span class="comment">     *</span>
+<span class="comment">     * Caveat: since nativeInstance is &#39;int&#39; 64-bit hosts</span>
+<span class="comment">     *  are out of luck.</span>
+<span class="comment">     */</span>
+    <span class="keyword">protected</span> native <span class="keywordtype">void</span> finalize();
+    <span class="keyword">private</span> <span class="keywordtype">int</span> nativeInstance;
+}
+</pre></div> </div>
 </div>
 </div>
   <div id="nav-path" class="navpath">
