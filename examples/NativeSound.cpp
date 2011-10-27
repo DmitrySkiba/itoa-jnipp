@@ -6,7 +6,7 @@
  *  is JNI_OnLoad function.
  */
 extern "C" jint JNI_OnLoad(JavaVM* vm,void* reserved) {
-    
+
     // Initialize jni:: first.
     jni::Initialize(vm);
 
@@ -82,7 +82,7 @@ NativeSoundCheckpoint::NativeSoundCheckpoint(const jni::LObject& checkpoint):
     java::Object(checkpoint)
 {
 }
-    
+
 jlong NativeSoundCheckpoint::GetTime() const {
     return JB_GET_THIS(LongField,Time);
 }
@@ -137,7 +137,7 @@ void NativeSound::RegisterCallbacks() {
 
 void NativeSound::Construct(const jni::LObject& thiz,java::PString path) {
     // No leak here because instance pointer is stored in the Java
-    //  object 'thiz' by the live constructor 
+    //  object 'thiz' by the live constructor
     //  NativeSound(const jni::LObject&,jfieldID).
     new NativeSound(thiz,path);
 }
@@ -162,7 +162,7 @@ NativeSound::NativeSound(const jni::LObject& thiz,java::PString path):
         /*** throw NativeSoundException("Can't open file."); ***/
         // This will work, but is still wrong - descendants of java::Object
         //  are reference counted, and should not be instantiated on a
-        //  stack. 
+        //  stack.
     }
 
     // Work with file...

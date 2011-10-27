@@ -39,7 +39,7 @@ static void DestroyWeakReference(jobject weakReference);
 
 #ifdef JNIPP_EMULATE_WEAK_GLOBAL_REFERENCES
 
-/* Implementation of the WeakReference functions using 
+/* Implementation of the WeakReference functions using
  *  java.lang.ref.WeakReference class.
  */
 
@@ -48,7 +48,7 @@ static void DestroyWeakReference(jobject weakReference);
 JB_DEFINE_ACCESSOR(
     "java/lang/ref/WeakReference"
     ,
-    NoFields    
+    NoFields
     ,
     Methods
     (
@@ -94,7 +94,7 @@ static void DestroyWeakReference(jobject weakReference) {
 
 #else // !JNIPP_EMULATE_WEAK_GLOBAL_REFERENCES
 
-/* Implementation of the WeakReference functions using 
+/* Implementation of the WeakReference functions using
  *  JNI's weak global references.
  */
 
@@ -204,10 +204,10 @@ Object::~Object() {
     }
     if (m_weakReference) {
         // We must zero instance field to avoid destroying
-        //  object twice in the situation where constructor 
+        //  object twice in the situation where constructor
         //  of a derived class calls Object's live constructor
-        //  but then finishes with exception. In that case 
-        //  finalizer for the derived live object will try to 
+        //  but then finishes with exception. In that case
+        //  finalizer for the derived live object will try to
         //  Release() reference causing second object destruction.
         jobject object=DerefWeakReference(m_weakReference);
         if (object) {

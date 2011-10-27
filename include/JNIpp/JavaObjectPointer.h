@@ -58,7 +58,7 @@ template <class ObjectType>
 class ObjectPointer;
 
 /* Depending on \c ObjectType::IsLiveType value we either wrap
- *  Java object itself or wrap a live object instance stored 
+ *  Java object itself or wrap a live object instance stored
  *  inside Java object.
  */
 template <class ObjectType,bool Live=ObjectType::IsLiveType>
@@ -108,11 +108,11 @@ public:
  *  wraps jni::LObject into \c ObjectType. That method works for
  *  both wrapper and live classes:
  * - If \c ObjectType is a wrapper class (Object::IsLiveType=false)
- *   new instance of \c ObjectType is created using wrapping 
+ *   new instance of \c ObjectType is created using wrapping
  *   constructor (Object::Object(const jni::LObject&).
  * - If \c ObjectType is a live class (Object::IsLiveType=true)
  *   instance pointer is extracted from Java object using
- *   Object::GetLiveInstance() and wrapped into ObjectPointer. 
+ *   Object::GetLiveInstance() and wrapped into ObjectPointer.
  *   Object::GetInstanceFieldID() is used to get id of an instance
  *   field.
  *
@@ -132,7 +132,7 @@ template <typename ObjectType>
 class ObjectPointer: public jni::AbstractObject {
     class UnknownObject;
 public:
-    
+
     /** Constructs pointer with \c object; by default constructs
      *  empty pointer.
      * Method calls \c Object::Retain() on \c object.
@@ -140,7 +140,7 @@ public:
     ObjectPointer(ObjectType* object=0) {
         Construct(object);
     }
-    
+
     /** Constructs pointer with \c object derived from to \c ObjectType.
      * Method calls \c Object::Retain() on \c object.
      */
@@ -148,13 +148,13 @@ public:
     ObjectPointer(OtherObjectType* object) {
         Construct(object);
     }
-    
+
     /** Copy-constructor.
      */
     ObjectPointer(const ObjectPointer<ObjectType>& other) {
         Construct(other.m_object);
     }
-    
+
     /** Copy-constructor that takes pointer to derived object.
      */
     template <typename OtherObjectType>
@@ -169,9 +169,9 @@ public:
     }
 
     /** Swaps content with another pointer.
-     */    
+     */
     void Swap(ObjectPointer<ObjectType>& other) {
-        std::swap(m_object,other.m_object);    
+        std::swap(m_object,other.m_object);
     }
 
     /** Resets object pointer: releases and nulls contained object.
@@ -182,9 +182,9 @@ public:
             m_object=0;
         }
     }
-    
+
     /** Detaches contained object.
-     * Nulls and returns contained object. NOTE: don't forget to call 
+     * Nulls and returns contained object. NOTE: don't forget to call
      *  \c Object::Release() on returned object.
      */
     ObjectType* Detach() {
@@ -198,13 +198,13 @@ public:
     ObjectType* Get() const {
         return m_object;
     }
-    
+
     /** Returns contained object.
      */
     ObjectType* operator->() const {
         return m_object;
     }
-    
+
     /** Returns reference to the contained object.
      * NOTE: make sure that object pointer contains non-NULL object
      *  before calling this method.
@@ -212,26 +212,26 @@ public:
     ObjectType& operator*() const {
         return *m_object;
     }
-    
+
     /** Helper operator, allows for testing and comparing object pointers.
      */
     operator const UnknownObject*() const {
         return reinterpret_cast<const UnknownObject*>(m_object);
     }
-    
+
     /** Tests whether object pointer is empty.
      */
     bool operator!() const {
         return m_object==0;
     }
-    
+
     /** Assignment operator.
      */
     ObjectPointer<ObjectType>& operator=(const ObjectPointer<ObjectType>& other) {
         ObjectPointer<ObjectType>(other).Swap(*this);
         return *this;
     }
-    
+
     /** Assignment operator for types derived from \c ObjectType.
      */
     template <typename OtherObjectType>
@@ -239,7 +239,7 @@ public:
         ObjectPointer<ObjectType>(other).Swap(*this);
         return *this;
     }
-    
+
     /** Returns Java object that is contained in this pointer's
      *  object, or NULL if the pointer is empty.
      */
@@ -248,11 +248,11 @@ public:
     }
 
     #ifdef ONLY_FOR_DOXYGEN
-    
+
     /** Instantiates \c ObjectType and wraps it into ObjectPointer.
      */
     static ObjectPointer<ObjectType> New(...);
-    
+
     #endif // ONLY_FOR_DOXYGEN
 
     /* Generate New() implementations.

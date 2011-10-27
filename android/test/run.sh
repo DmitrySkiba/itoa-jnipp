@@ -18,7 +18,7 @@
 THIS_PATH=`dirname $0`
 THIS_PATH=`cd $THIS_PATH && pwd`
 
-ndk-build -C $THIS_PATH/jni && 
+ndk-build -C $THIS_PATH/jni &&
 ant -f $THIS_PATH/build.xml install &&
 adb logcat -c &&
 adb shell am start -a android.intent.action.MAIN -n com.itoa.jnipp.test/.MainActivity &&

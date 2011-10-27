@@ -12,7 +12,7 @@
  *
  * The problem with using PPattern is that destructor of g_emailPattern
  *  will be called on library unload *after* the JNI unload event
- *  JNI_OnUnload. So jni::GetEnv() which every jni:: function use will 
+ *  JNI_OnUnload. So jni::GetEnv() which every jni:: function use will
  *  fail and call jni::FatalError() to report a failure. jni::FatalError()
  *  will try to call jni::GetEnv()->FatalError() but since JNIEnv is not
  *  available jni::FatalError() will abort the whole process with abort().
@@ -35,7 +35,7 @@ bool ValidateEmail(const char* email) {
         );
         g_emailPattern=pattern.Detach();
     }
-    
+
     // Compare with Java's "pattern.matcher(email).matches()".
     return g_emailPattern->CreateMatcher(email)->Matches();
 }
@@ -48,7 +48,7 @@ bool ValidateEmail(const char* email) {
  * Each wrapper class implementation must start with a definition
  *  of the current class.
  *
- * Remember that JB_ macros are only usable when JB_CURRENT_CLASS 
+ * Remember that JB_ macros are only usable when JB_CURRENT_CLASS
  *  is defined. Otherwise you will get compiler errors.
  */
 #define JB_CURRENT_CLASS Pattern
@@ -92,7 +92,7 @@ PPattern Pattern::Compile(const char* regex) {
     return Compile(java::PString::New(regex));
 }
 
-/* 
+/*
  * Here is what happens in this method:
  * - JB_CALL_STATIC() calls JB_INIT_CLASS() to make sure class descriptor
  *    (defined by JB_DEFINE_CLASS) is initialized.

@@ -29,18 +29,18 @@ void RunArrayTest();
 
 extern "C" void Java_com_itoa_jnipp_test_Tests_run(JNIEnv* env,jclass) {
     jni::Initialize(env);
-    
+
     try {
         RunArrayTest();
         RunMethodTest();
         RunFieldsTest();
         RunLiveClassTest();
         RunCastsTest();
-        
+
         TEST_PRINTF("Done");
     }
     catch (const jni::AbstractObject& exception) {
-        TEST_FAILED("Exception: %s\n",java::Cast<java::Object>(exception)->ToString()->GetUTF());        
+        TEST_FAILED("Exception: %s\n",java::Cast<java::Object>(exception)->ToString()->GetUTF());
     }
     catch (const std::exception& exception) {
         TEST_FAILED("std::exception: %s",exception.what());

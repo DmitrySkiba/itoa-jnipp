@@ -20,7 +20,7 @@
 
 ///////////////////////////////////////////////// GetJValue
 
-/* _GetJValue functions convert various types to 
+/* _GetJValue functions convert various types to
  *  the corresponding JNI types.
  *
  * _GetJValue functions play important role - they decide
@@ -73,7 +73,7 @@ inline T* _GetJValue(T* p) {
 
 ///////////////////////////////////////////////// WrapJValue
 
-/* _WrapJValue converts raw JNI values to the 
+/* _WrapJValue converts raw JNI values to the
  *  appropriate JNIpp equivalents.
  */
 
@@ -95,7 +95,7 @@ inline T _WrapJValue(T value) {
 ///////////////////////////////////////////////////////////////////// methods
 
 /* Functions that used by the macros below.
- * Each function takes raw JNI types, but returns JNIpp 
+ * Each function takes raw JNI types, but returns JNIpp
  *  values and handle exceptions.
  */
 
@@ -358,17 +358,17 @@ xJNIPP_IMPLEMENT_SET_FIELD(SetStaticDoubleField,jdouble);
 ///////////////////////////////////////////////// bool versions
 
 inline bool GetBoolField(const AbstractObject& object,jfieldID fieldID) {
-    return _WrapJValue(GetBooleanField(object,fieldID));   
+    return _WrapJValue(GetBooleanField(object,fieldID));
 }
 inline void SetBoolField(const AbstractObject& object,jfieldID fieldID,bool value) {
     SetBooleanField(object,fieldID,_GetJValue(value));
 }
 
 inline bool GetStaticBoolField(const AbstractObject& clazz,jfieldID fieldID) {
-    return _WrapJValue(GetStaticBooleanField(clazz,fieldID));   
+    return _WrapJValue(GetStaticBooleanField(clazz,fieldID));
 }
 inline void SetStaticBoolField(const AbstractObject& clazz,jfieldID fieldID,bool value) {
-    SetStaticBooleanField(clazz,fieldID,_GetJValue(value));   
+    SetStaticBooleanField(clazz,fieldID,_GetJValue(value));
 }
 
 /////////////////////////////////////////////////////////////////////

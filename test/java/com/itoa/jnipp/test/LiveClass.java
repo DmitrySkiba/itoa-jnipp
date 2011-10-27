@@ -17,9 +17,9 @@
 package com.itoa.jnipp.test;
 
 abstract class LiveClassBase {
- 
+
     protected abstract void onFinalize();
-    
+
     protected void finalize() {
         onFinalize();
     }
@@ -44,7 +44,7 @@ public class LiveClass extends LiveClassBase {
 
     public static class Caller {
         private LiveClass test;
-      
+
         public void callSimpleCallback() {
             test.simpleCallback();
         }
@@ -67,7 +67,7 @@ public class LiveClass extends LiveClassBase {
         public void callNonStaticCallback() {
             test.nonStaticCallback(test);
         }
-        
+
         public static void callStaticSimpleCallback() {
             LiveClass.staticSimpleCallback();
         }
@@ -76,26 +76,26 @@ public class LiveClass extends LiveClassBase {
     public LiveClass() {
         instanceCount++;
     }
-    
+
     public Caller getCaller() {
         Caller caller=new Caller();
         caller.test=this;
         return caller;
     }
-    
+
     public native void simpleCallback();
     public native long primitiveCallback(boolean z,double d,char c,byte b,short s,int i,long j,float f);
     public native Object objectCallback();
     public native void exceptionCallback(String message);
     public native void nonStaticCallback(LiveClass other);
-    
+
     public static native void staticSimpleCallback();
 
     private void throwException(String message) {
         throw new RuntimeException(message);
     }
-    
-    protected void onFinalize() { 
+
+    protected void onFinalize() {
         instanceCount--;
     }
     public static int instanceCount=0;

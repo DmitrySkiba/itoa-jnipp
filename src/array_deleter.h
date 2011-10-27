@@ -19,7 +19,7 @@
 
 ///////////////////////////////////////////////////////////////////// array_deleter
 
-/** As auto_ptr<> can't deal with arrays one has to come up 
+/** As auto_ptr<> can't deal with arrays one has to come up
  * with utility like this, which only purpose is to delete
  * array in destructor.
  */

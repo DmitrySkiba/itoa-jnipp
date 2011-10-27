@@ -204,28 +204,28 @@ void RunCastsTest() {
         CheckedCast<Interface>(string,false);
         CheckedCast<Base>(string,false);
     }
-    
+
     {
         PDerived derived=new Derived();
-        
+
         CheckedCast<java::Object>(derived,true);
         CheckedCast<Base>(derived,true);
         CheckedCast<Interface>(derived,true);
-        
+
         CheckedCast<Implementation>(derived,false);
         CheckedCast<java::PString>(derived,false);
     }
 
     {
         PImplementation implementation=new Implementation();
-        
+
         CheckedCast<java::Object>(implementation,true);
         CheckedCast<Interface>(implementation,true);
-        
+
         CheckedCast<Base>(implementation,false);
         CheckedCast<java::PString>(implementation,false);
     }
-    
+
     TEST_PASSED();
 }
 

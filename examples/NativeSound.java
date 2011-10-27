@@ -6,7 +6,7 @@
 class NativeSound {
 
     /*** Test ***/
-    
+
     public static void test(String path) {
         try {
             NativeSound sound=new NativeSound(path);
@@ -34,7 +34,7 @@ class NativeSound {
 
 
     /*** Public interface ***/
-    
+
     public static class Checkpoint {
         public Checkpoint() {
             this(0,null);
@@ -43,7 +43,7 @@ class NativeSound {
             this.time=time;
             this.data=data;
         }
-        
+
         public long time;
         public Object data;
     }
@@ -59,7 +59,7 @@ class NativeSound {
 
     public native void play() throws NativeSoundException;
     public native void stop() throws NativeSoundException;
-    
+
     /* Method demonstrates how to handle arguments in callbacks.
      */
     public native void setCheckpoints(Checkpoint[] checkpoints) throws NativeSoundException;
@@ -68,7 +68,7 @@ class NativeSound {
     /*** Implementation details ***/
 
     private native void construct(String path) throws NativeSoundException;
-    
+
     // Usual stuff for live classes.
     protected native void finalize();
     private int nativeInstance;
