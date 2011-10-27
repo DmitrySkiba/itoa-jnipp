@@ -22,9 +22,9 @@ import android.util.AttributeSet;
 import android.graphics.Canvas;
 
 public class LiveView extends View {
-    
+
     /* Construction */
-    
+
     public LiveView(Context context,AttributeSet attrs) {
         super(context,attrs);
         setNativeInstance(attrs);
@@ -35,7 +35,7 @@ public class LiveView extends View {
         setNativeInstance(attrs);
         construct(context,attrs,defStyle);
     }
-    
+
     private void setNativeInstance(AttributeSet attrs) {
         String tag=attrs.getAttributeValue(null,"nativeTag");
         if (tag==null) {
@@ -47,21 +47,21 @@ public class LiveView extends View {
                 "Native instance for LiveView '%s' was not set.",tag));
         }
     }
-    
+
     private native void setNativeInstance(String tag);
     private native void construct(Context context,AttributeSet attrs);
     private native void construct(Context context,AttributeSet attrs,int defStyle);
-    
+
     /* Overridables */
-    
+
     protected native void onDraw(Canvas canvas);
-    
+
     // This method is called from native's default implementation of onDraw.
     private void superOnDraw(Canvas canvas) {
         super.onDraw(canvas);
     }
-    
-    
+
+
     /* Required by JNIpp */
     protected native void finalize();
     private int nativeInstance;

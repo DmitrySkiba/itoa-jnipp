@@ -17,7 +17,7 @@
 package com.itoa.jnipp.test;
 
 public class Array {
-    
+
     public static long[] factorial(int length) {
         long[] array=new long[length];
         long f=1;
@@ -25,9 +25,9 @@ public class Array {
             f=f*(1+i);
             array[i]=f;
         }
-        return array;            
+        return array;
     }
-    
+
     public static boolean[] int2bits(int value) {
         boolean[] bits=new boolean[32];
         for (int i=0;i!=32;++i) {
@@ -44,6 +44,6 @@ public class Array {
         }
         return value;
     }
-    
+
 }
 

@@ -45,7 +45,7 @@ public:
      */
     static PPattern Compile(const char* regex);
     static PPattern Compile(java::PString regex);
-    
+
     /* Java naming rules are strange, so we rename 'matcher'
      *  method.
      */
@@ -53,7 +53,7 @@ public:
     PMatcher CreateMatcher(java::PCharSequence input) const;
 
 private:
-    
+
     /* Wrapping constructor.
      * Private, as you should use Compile() method to get
      *  an instance.

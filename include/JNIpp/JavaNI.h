@@ -26,7 +26,7 @@
 #include <dropins/begin_namespace.h>
 
 /** Contains Java Native Interface functions.
- * 
+ *
  * Functions in this namespace are modified versions of standard
  *  JNI functions found in \c jni.h and described in JNI specification
  *  at http://java.sun.com/docs/books/jni/.
@@ -64,7 +64,7 @@ class AbstractObject {
 public:
     AbstractObject() {}
     virtual ~AbstractObject() {}
-    
+
     /** Returns contained Java object; returns NULL to indicate
      *  NULL object.
      */
@@ -99,47 +99,47 @@ public:
     /** Constructs empty object.
      */
     LObject();
-    
+
     /** Copies Java object from \c other, adds local reference.
      */
     LObject(const LObject& other);
-    
+
     /** Deletes local reference from contained Java object.
      */
     virtual ~LObject();
-    
+
     /** Swaps two instances.
      */
     void Swap(LObject& other);
-    
+
     /** Returns contained Java object.
      */
     virtual jobject GetJObject() const;
-    
+
     /** Copies Java object from \c other, adds local reference.
      */
     LObject& operator=(const LObject& other);
-    
+
     /** Returns \c true if object is empty (contains NULL Java object).
      */
     bool IsEmpty() const;
-    
+
     /** Checks if object is empty (contains NULL Java object).
      */
     bool operator!() const;
-    
+
     /** Comparasion helper.
      */
     operator ComparasionHelper*() const;
-    
+
     /** Creates and returns LObject by adding a local reference
      *  to the \c object.
      */
     static LObject Wrap(jobject object);
-    
-    /** Creates and returns LObject, but DOES NOT add local 
+
+    /** Creates and returns LObject, but DOES NOT add local
      *  reference.
-     * Use this method when you already have local reference 
+     * Use this method when you already have local reference
      *  added to the object (e.g. object is a result of calling
      *  JNIEnv::NewObject).
      */
@@ -157,7 +157,7 @@ private:
 /** Pass this object instead of NULL.
  * If NULL is defined as "0" on your platform, passing NULL to
  *  vararg functions will not cause a compiler error. However,
- *  NULL will be treated as int and will likely cause a crash on 
+ *  NULL will be treated as int and will likely cause a crash on
  *  systems where sizeof(int)!=sizeof(void*).
  */
 extern LObject NullObject;
@@ -166,7 +166,7 @@ extern LObject NullObject;
 
 /** Returns \c JNIEnv* for the current thread.
  * Performs JavaVM::AttachCurrentThread().
- */ 
+ */
 JNIEnv* GetEnv();
 
 /** Initializes #jni; must be called before any other #jni function.
@@ -186,8 +186,8 @@ void Initialize(JavaVM* vm);
 void Initialize(JNIEnv* env);
 
 /** Terminates current program with a message.
- * If \c JNIEnv is available to the current thread, this function 
- *  calls \c JNIEnv::FatalError(), otherwise it logs message 
+ * If \c JNIEnv is available to the current thread, this function
+ *  calls \c JNIEnv::FatalError(), otherwise it logs message
  *  in a platform-specific way and calls \c abort().
  */
 void FatalError(const char* message,...);
@@ -218,14 +218,14 @@ bool IsAssignableFrom(const AbstractObject& clazz,const AbstractObject& clazzFro
  */
 bool IsInstanceOf(const AbstractObject& object,const AbstractObject& clazz);
 
-/** Tests whether two references refer to the same Java object. 
+/** Tests whether two references refer to the same Java object.
  */
 bool IsSameObject(const AbstractObject& object1,const AbstractObject& object2);
 
 ///////////////////////////////////////////////////////////////////// exceptions
 
 /** Raises Java exception.
- * This function instructs Java VM that Java exception 
+ * This function instructs Java VM that Java exception
  *  \c throwable should be thrown once control returns
  *  to the VM.
  */
@@ -235,15 +235,15 @@ void Throw(const AbstractObject& throwable);
  *
  * If no Java exception is pending this function does nothing.
  *
- * If Java exception is pending this function wraps it in private 
+ * If Java exception is pending this function wraps it in private
  *  object derived from jni::AbstractObject, clears pending exception
  *  status and throws exception object by value. Use java::Cast() to
  *  cast exception object to concrete type. You can safely cast to
  *  java::Throwable class.
  *
- * You should catch Java exception by const reference to 
+ * You should catch Java exception by const reference to
  *  jni::AbstractObject:
- * \code     
+ * \code
  *  try {
  *    java::PIntArray array=new java::IntArray(1);
  *    array->SetAt(10,0); // throws IndexOutOfBoundsException
@@ -282,8 +282,8 @@ void TranslateJavaException();
  *  - If <tt> const std::basic_exception& </tt> was thrown,
  *    function raises \c java.lang.RuntimeException with
  *    exception's message.
- *  - All other exception types are translated to 
- *    \c java.lang.RuntimeException with the message of 
+ *  - All other exception types are translated to
+ *    \c java.lang.RuntimeException with the message of
  *    'Unknown C++ exception'.
  *
  * This function is used to translate exceptions occurred during
@@ -315,7 +315,7 @@ enum ArrayReleaseMode {
  *
  * Evaluates to
  * \code
- * sizeof(jboolean)==sizeof(bool) && 
+ * sizeof(jboolean)==sizeof(bool) &&
  *   JNI_TRUE==true && JNI_FALSE==false
  * \endcode
  *
@@ -568,7 +568,7 @@ jmethodID GetStaticMethodID(const AbstractObject& clazz,const char* name,const c
  * All vararg #jni functions are in fact template overloads with
  *  different number of arguments. That is because C++ doesn't
  *  allow passing objects to standard vararg functions (denoted
- *  with ...). 
+ *  with ...).
  *
  * There are following limitations to the vararg arguments:
  *  - Maximum number of arguments is 20.
@@ -581,7 +581,7 @@ jmethodID GetStaticMethodID(const AbstractObject& clazz,const char* name,const c
  *    - <tt> jfloat </tt>
  *    - <tt> jdouble </tt>
  *  - Allowed object types:
- *    - All objects derived from jni::AbstractObject and passed 
+ *    - All objects derived from jni::AbstractObject and passed
  *      by value or by reference.
  */
 class VarArgs {};

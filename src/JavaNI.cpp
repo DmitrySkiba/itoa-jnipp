@@ -75,7 +75,7 @@ LObject::~LObject() {
 }
 
 void LObject::Swap(LObject& other) {
-    std::swap(m_object,other.m_object);    
+    std::swap(m_object,other.m_object);
 }
 
 jobject LObject::GetJObject() const {
@@ -96,7 +96,7 @@ bool LObject::operator!() const {
 }
 
 LObject::operator ComparasionHelper*() const {
-    return (ComparasionHelper*)m_object;    
+    return (ComparasionHelper*)m_object;
 }
 
 LObject LObject::Wrap(jobject object) {
@@ -173,7 +173,7 @@ void FatalError(const char* message,...) {
         vsnprintf(formattedMessage,MaxLength,message,arguments);
         va_end(arguments);
     }
-    
+
     // If JNIEnv is available, use FatalError() method.
     JNIEnv* env=GetEnv(false);
     if (env) {
@@ -181,7 +181,7 @@ void FatalError(const char* message,...) {
         // Just in case FatalError() returns, proceed to the
         //  'log and die' method.
     }
-    
+
     // If JNIEnv is not available, log and die.
 #ifdef ANDROID
     __android_log_write(ANDROID_LOG_ERROR,"JNIpp",formattedMessage);

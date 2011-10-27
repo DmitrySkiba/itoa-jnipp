@@ -47,7 +47,7 @@ static java::PLongArray Factorial(int32_t value) {
 }
 
 static java::PBoolArray Int2Bits(int32_t value) {
-    return java::PBoolArray::Wrap(JB_CALL_STATIC(ObjectMethod,Int2Bits,value));   
+    return java::PBoolArray::Wrap(JB_CALL_STATIC(ObjectMethod,Int2Bits,value));
 }
 
 static int32_t Bits2Int(java::PBoolArray bits) {
@@ -63,11 +63,11 @@ void RunArrayTest() {
     {
         const int factorialLength=19;
         java::PLongArray factorial=Factorial(factorialLength);
-        
+
         TEST_CHECK_FAIL(factorial->GetLength()!=factorialLength,
             "Invalid factorial length %d (expected %d).",
             factorial->GetLength(),factorialLength);
-        
+
         jlong f=1;
         for (int i=0;i!=factorial->GetLength();++i) {
             f*=(i+1);
@@ -76,7 +76,7 @@ void RunArrayTest() {
                 "Invalid factorial[%d] value %lld (expected %lld).",i,value,f);
         }
     }
-    
+
     {
         java::PBoolArray bits=new java::BoolArray(32);
         bits->SetAt(31,true);
@@ -84,7 +84,7 @@ void RunArrayTest() {
         bits->SetAt(17,true);
         bits->SetAt(7,true);
         const int expectedValue=0xC0020080;
-        
+
         int value=Bits2Int(bits);
         TEST_CHECK_FAIL(value!=expectedValue,
             "Invalid bits value: %08X (expected %08X).",value,expectedValue);

@@ -118,7 +118,7 @@ void RunMethodTest() {
     GetSetStaticDouble(0.77e+100);
 
     jni::LObject testObject=CreateTestObject();
-    
+
     GetSetBoolean(testObject,JNI_TRUE);
     GetSetBoolean(testObject,JNI_FALSE);
     GetSetBool(testObject,true);

@@ -19,13 +19,13 @@ package com.itoa.jnipp.android;
 import android.os.Bundle;
 
 public class Activity extends android.app.Activity {
-    
+
     protected Activity() {
         System.loadLibrary(getClass().getPackage().getName());
         construct();
     }
     private native void construct();
-    
+
     // Overriden methods.
     public native void onCreate(Bundle savedInstanceState);
 

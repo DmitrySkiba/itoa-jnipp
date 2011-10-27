@@ -74,7 +74,7 @@ void R::DestroyNoLock() {
     DestroyInnerClass(m_idClass);
     DestroyInnerClass(m_layoutClass);
 }
-   
+
 void R::InitInnerClass(java::Class*& clazz,const char* className) {
     pthreadpp::mutex_guard guard(m_lock);
     if (!clazz) {
@@ -396,7 +396,7 @@ JB_DEFINE_WRAPPER_CLASS(
          "(I)V"
     )
 )
-    
+
 Canvas::Canvas(const jni::LObject& object):
     java::Object(object)
 {

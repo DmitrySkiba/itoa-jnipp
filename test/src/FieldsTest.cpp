@@ -118,7 +118,7 @@ void RunFieldsTest() {
     TestStaticDoubleField(0.77e+100);
 
     jni::LObject testObject=CreateTestObject();
-    
+
     TestBooleanField(testObject,JNI_FALSE);
     TestBooleanField(testObject,JNI_TRUE);
     TestBoolField(testObject,true);

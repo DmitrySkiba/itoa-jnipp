@@ -19,7 +19,7 @@ package com.itoa.jnipp.test;
 public class Callee {
 
     /* Static methods */
-    
+
     public static boolean getStaticBoolean() { return staticBooleanField; }
     public static void setStaticBoolean(boolean value) { staticBooleanField=value; }
     public static byte getStaticByte() { return staticByteField; }
@@ -48,7 +48,7 @@ public class Callee {
     public static float selectFloat(int i,boolean z,short s,char c,long j,float f,double d,Object o,byte b) { return f; }
     public static double selectDouble(int i,boolean z,short s,char c,long j,float f,double d,Object o,byte b) { return d; }
     public static Object selectObject(int i,boolean z,short s,char c,long j,float f,double d,Object o,byte b) { return o; }
-    
+
     /* Instance methods */
 
     public boolean getBoolean() { return booleanField; }
@@ -69,9 +69,9 @@ public class Callee {
     public void setDouble(double value) { doubleField=value; }
     public Object getObject() { return objectField; }
     public void setObject(Object value) { objectField=value; }
-    
+
     /* Data, not accessed from native code */
-    
+
     private static Object staticObjectField;
     private static boolean staticBooleanField;
     private static byte staticByteField;

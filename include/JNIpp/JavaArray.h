@@ -28,7 +28,7 @@ BEGIN_NAMESPACE(java)
 ///////////////////////////////////////////////////////////////////// PrimitiveArray
 
 /** Wrapper for primitive arrays (like \c int[]).
- * You don't need to use this class, use typedefs like 
+ * You don't need to use this class, use typedefs like
  *  java::PIntArray instead.
  */
 template <class JType>
@@ -57,7 +57,7 @@ public:
         }
         return m_length;
     }
-   
+
     /** Returns value at the specified index.
      */
     JType GetAt(jsize index) const {
@@ -165,7 +165,7 @@ typedef ObjectPointer<DoubleArray> PDoubleArray;
 ///////////////////////////////////////////////////////////////////// ObjectArray
 
 /** Wrapper template for object arrays.
- * Default value of \c ObjectType is java::Object, so 
+ * Default value of \c ObjectType is java::Object, so
  *  java::ObjectArray<> is a wrapper for an array of objects
  *  (\c Object[]). However, you should use java::PObjectArray
  *  most of the time. For example, to create object array of
@@ -174,7 +174,7 @@ typedef ObjectPointer<DoubleArray> PDoubleArray;
  * To declare N-dimensional array nest java::ObjectArray N times:
  * - <tt>
  *   java::ObjectArray<java::ObjectArray<java::ObjectArray<MyClass> > >
- *   </tt> 
+ *   </tt>
  */
 template <class ObjectType=Object>
 class ObjectArray: public Object {
@@ -212,7 +212,7 @@ public:
     PObjectType GetAt(jsize index) const {
         return PObjectType::Wrap(jni::GetObjectArrayElement(*this,index));
     }
-    
+
     /** Sets object at the specified index.
      */
     void SetAt(jsize index,const ObjectType& value) {

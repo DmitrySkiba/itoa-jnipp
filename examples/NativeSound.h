@@ -43,7 +43,7 @@ class NativeSoundCheckpoint: public java::Object {
     JB_WRAPPER_CLASS(NativeSoundCheckpoint);
 public:
     NativeSoundCheckpoint(const jni::LObject& checkpoint);
-    
+
     jlong GetTime() const;
     java::PObject GetData() const;
 };
@@ -66,13 +66,13 @@ public:
      */
     typedef NativeSoundCheckpoint Checkpoint;
     typedef java::ObjectPointer<Checkpoint> PCheckpoint;
-    
+
     /* Array typedefs.
      * PCheckpointArray is most useful.
      */
     typedef java::ObjectArray<Checkpoint> CheckpointArray;
     typedef java::ObjectPointer<CheckpointArray> PCheckpointArray;
-    
+
 public:
     /* Binds to the Java class.
      */
@@ -82,18 +82,18 @@ public:
      *  in next release.
      */
     java::PString GetPath();
-    
+
     void Play();
     void Stop();
     void SetCheckpoints(PCheckpointArray checkpoints);
 private:
     NativeSound(const jni::LObject&,java::PString path);
     virtual ~NativeSound();
-    
+
     /* This callback function will be called when Java object calls
-     *  construct(path). Note that se are binding static callback 
-     *  to a non-static Java method. Hence implicit first argument 
-     *  will be the Java object itself. We will pass that object to 
+     *  construct(path). Note that se are binding static callback
+     *  to a non-static Java method. Hence implicit first argument
+     *  will be the Java object itself. We will pass that object to
      *  the live constructor of the parent class.
      */
     static void Construct(const jni::LObject&,java::PString path);

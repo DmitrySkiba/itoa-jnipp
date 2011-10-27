@@ -66,7 +66,7 @@ public:
     static void DestroyJavaInstance();
     static void CheckInstanceCount(int32_t expectedCount);
     static void CheckCallbackEvent(const char* callbackName);
-public:    
+public:
     static const bool TestBool;
     static const jbyte TestByte;
     static const jchar TestChar;
@@ -181,7 +181,7 @@ LiveClass::LiveClass():
     java::Object(JB_NEW(Constructor),GetInstanceFieldID())
 {
     m_instanceCount++;
-    
+
     m_callbackEvent=false;
     m_destructorEvent=false;
 }
@@ -395,9 +395,9 @@ void LiveClassCounted::CheckNoInstances() {
 ///////////////////////////////////////////////////////////////////// test
 
 void RunLiveClassTest() {
-    
+
     LiveClass::CheckInstanceCount(0);
-    
+
     {
         PLiveClass test=new LiveClass();
         LiveClass::CheckInstanceCount(1);
@@ -412,10 +412,10 @@ void RunLiveClassTest() {
             PLiveClass test=new LiveClass();
             caller=test->GetCaller();
         }
-        
+
         caller->CallSimpleCallback();
         LiveClass::CheckCallbackEvent("simpleCallback");
-        
+
         {
             jlong result=caller->CallPrimitiveCallback(
                 LiveClass::TestBool,LiveClass::TestDouble,LiveClass::TestChar,
@@ -426,7 +426,7 @@ void RunLiveClassTest() {
                 TEST_FAILED("primitiveCallback returned wrong value %lld",result);
             }
         }
-        
+
         {
             LiveClassCounted::CheckNoInstances();
             java::PString result=caller->CallObjectCallback();
@@ -436,7 +436,7 @@ void RunLiveClassTest() {
             }
             LiveClassCounted::CheckNoInstances();
         }
-        
+
         {
             java::PString messageIn=java::PString::New("Zoooooooom!");
             java::PString messageOut=caller->CallExceptionCallback(messageIn);
@@ -446,7 +446,7 @@ void RunLiveClassTest() {
                     messageOut->GetUTF(),messageIn->GetUTF());
             }
         }
-        
+
         {
             caller->CallNonStaticCallback();
             LiveClass::CheckCallbackEvent("CallNonStaticCallback");
@@ -454,10 +454,10 @@ void RunLiveClassTest() {
     }
     LiveClass::DestroyJavaInstance();
     LiveClass::CheckInstanceCount(0);
-    
+
     LiveClassCaller::CallStaticSimpleCallback();
     LiveClass::CheckCallbackEvent("staticSimpleCallback");
 
-    
-    TEST_PASSED();    
+
+    TEST_PASSED();
 }

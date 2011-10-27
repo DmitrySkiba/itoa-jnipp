@@ -102,7 +102,7 @@ jchar CharSequence::CharAt(jint index) const {
 }
 
 jint CharSequence::GetLength() const {
-     return JB_CALL_THIS(IntMethod,GetLength);   
+     return JB_CALL_THIS(IntMethod,GetLength);
 }
 
 PCharSequence CharSequence::GetSubSequence(jint start,jint end) const {
@@ -217,7 +217,7 @@ void String::RetrieveUTFString() {
         m_utfString=EmptyUTFString;
     } else {
         char* utfChars=new char[length+1];
-        array_deleter<char> utfCharsDeleter(utfChars); 
+        array_deleter<char> utfCharsDeleter(utfChars);
         const char* chars=jni::GetEnv()->GetStringUTFChars(javaString,0);
         jni::TranslateJavaException();
         memcpy(utfChars,chars,length);
