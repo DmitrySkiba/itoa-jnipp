@@ -19,7 +19,7 @@
 
 ///////////////////////////////////////////////////////////////////// macros
 
-/* Maximum value of N that both xJNIPP_GENERATE_ARGS and 
+/* Maximum value of N that both xJNIPP_GENERATE_ARGS and
  *  xJNIPP_GENERATE macros support.
  */
 #define xJNIPP_GENERATE_MAX_N 20
@@ -60,7 +60,7 @@
 #define xJNIPP_GENERATE_ARGSempty1
 #define xJNIPP_GENERATE_ARGSempty0
 
-#define xJNIPP_GENERATE_ARGS_0(C,F,S) 
+#define xJNIPP_GENERATE_ARGS_0(C,F,S)
 #define xJNIPP_GENERATE_ARGS_1(C,F,S) xJNIPP_GENERATE_ARGS_0(1,F,S)F(1)xJNIPP_GENERATE_ARGS##S##C
 #define xJNIPP_GENERATE_ARGS_2(C,F,S) xJNIPP_GENERATE_ARGS_1(1,F,S)F(2)xJNIPP_GENERATE_ARGS##S##C
 #define xJNIPP_GENERATE_ARGS_3(C,F,S) xJNIPP_GENERATE_ARGS_2(1,F,S)F(3)xJNIPP_GENERATE_ARGS##S##C

@@ -22,7 +22,7 @@ void StartMyThread() {
  *  that are all end up in MyThread::Run().
  */
 void CallRunVirtually() {
-    
+
     PLiveThread liveThread=new MyThread();
 
     // This is simple: when you call Run() on LiveThread
@@ -127,7 +127,7 @@ void Thread::Start() {
 void Thread::Run() {
     JB_CALL_THIS(VoidMethod,Run);
 }
-    
+
 PThread Thread::GetCurrentThread() {
     return PThread::Wrap(JB_CALL_STATIC(ObjectMethod,GetCurrentThread));
 }

@@ -54,15 +54,15 @@ typedef ObjectPointer<Object> PObject;
  *
  * When subclassing Object you need to decide whether to
  *  implement wrapper or live class:
- * - Wrapper classes let you to manipulate existing Java 
+ * - Wrapper classes let you to manipulate existing Java
  *    classes.
  * - Live classes let you to implement Java class methods in
- *    native code. Live classes can also call methods and 
+ *    native code. Live classes can also call methods and
  *    get/set fields.
  *
  *
  * More about creating a wrapper class:
- * - Wrapper class can only be derived from other wrapper 
+ * - Wrapper class can only be derived from other wrapper
  *    class (like Object or Exception).
  * - JB_WRAPPER_CLASS() is used to declare wrapper class and
  *    JB_DEFINE_WRAPPER_CLASS() is used to describe methods and
@@ -70,7 +70,7 @@ typedef ObjectPointer<Object> PObject;
  * - Wrapping constructor Object(const jni::LObject&) is used to
  *    construct instances of a wrapper class.
  * - In most cases wrapper class should also implement protected
- *    live constructor Object(const jni::LObject&,jfieldID) to 
+ *    live constructor Object(const jni::LObject&,jfieldID) to
  *    allow live classes to be derived.
  * - Wrapper class object is destroyed when last reference is
  *    released by Release() method.
@@ -91,7 +91,7 @@ typedef ObjectPointer<Object> PObject;
  *    JB_DEFINE_LIVE_CLASS() is used to describe methods, fields
  *    and callbacks. Callbacks are class methods that implement
  *    Java class methods declared \c native. Association between
- *    callbacks and corresponding Java methods is established in 
+ *    callbacks and corresponding Java methods is established in
  *    JB_DEFINE_LIVE_CLASS().
  * - Live constructor Object(const jni::LObject&,jfieldID)
  *    is used to construct instances of a live class.
@@ -113,16 +113,16 @@ public:
      * Added by JB_WRAPPER_CLASS() / JB_LIVE_CLASS().
      */
     static java::PClass GetTypeClass();
-    
+
 #ifdef ONLY_FOR_DOXYGEN
-    
+
     /** Returns instance field id.
      * Instance field must be declared as:
       * - <tt> private int nativeInstance; </tt>
      * Added by JB_LIVE_CLASS() macro.
      */
     static jfieldID GetInstanceFieldID();
-    
+
 #endif // ONLY_FOR_DOXYGEN
 
 public:
@@ -140,24 +140,24 @@ public:
      * See also Object(const jni::LObject&,jfieldID).
      */
     Object(const jni::LObject& object);
-    
+
     /** Tests whether this object is live.
      */
     bool IsLive() const;
-   
+
     /** Increments reference counter.
      * If this object is live incrementing counter from 1 to 2
      *  switches contained Java object from weak to global
-     *  reference. 
+     *  reference.
      */
     void Retain() const;
-    
+
     /** Decrements reference counter.
      * For live objects decrementing counter from 2 to 1
      *  switches contained Java object from global to weak
      *  reference allowing Java's GC to collect it.
      *
-     * When reference count hits zero (or goes below) object 
+     * When reference count hits zero (or goes below) object
      *  is deleted.
      */
     void Release() const;
@@ -193,19 +193,19 @@ public:
      */
     void NotifyAll();
 
-    /** Causes current thread to wait until another thread invokes the 
+    /** Causes current thread to wait until another thread invokes the
      *  Notify() method or the NotifyAll() method for this object.
      */
     void Wait();
 
-    /** Causes current thread to wait until either another thread invokes 
-     *  the Notify() method or the NotifyAll() method for this object, 
+    /** Causes current thread to wait until either another thread invokes
+     *  the Notify() method or the NotifyAll() method for this object,
      *  or a specified amount of time has elapsed.
      */
     void Wait(jlong timeout);
 
-    /** Causes current thread to wait until either another thread invokes 
-     *  the Notify() method or the NotifyAll() method for this object, 
+    /** Causes current thread to wait until either another thread invokes
+     *  the Notify() method or the NotifyAll() method for this object,
      *  or a specified amount of time has elapsed.
      */
     void Wait(jlong timeout,jint nanos);

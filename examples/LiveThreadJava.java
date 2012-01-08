@@ -14,12 +14,12 @@ public class LiveThreadJava extends Thread {
         super(name);
     }
 
-    
+
     /* run() is implemented in native code.
      */
     public native void run();
-    
-    
+
+
     /* These two things are needed for live class operation:
      * - finalize() destroys native object
      * - nativeInstance provides storage for native object

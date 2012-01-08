@@ -13,4 +13,3 @@ Both samples/HelloJNIpp/ and test/ projects must be updated before
  use: 'cd projest && android update project -p .' After update run
  run.sh script to build and run.
 
-  

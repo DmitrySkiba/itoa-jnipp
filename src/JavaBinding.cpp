@@ -38,8 +38,8 @@ static bool CheckClearException(bool describe=true) {
     }
 }
 
-/* jni::GetField/MethodId can throw an exception. However, the concrete 
- *  exception type depends on current exception handler which may not 
+/* jni::GetField/MethodId can throw an exception. However, the concrete
+ *  exception type depends on current exception handler which may not
  *  even throw at all. So we have to use raw methods and check for
  *  java exceptions. All exceptions are qualified as 'not found' errors.
  */

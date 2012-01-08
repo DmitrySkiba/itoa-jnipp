@@ -17,7 +17,7 @@
 package com.itoa.jnipp.test;
 
 public class Tests {
-    
+
     // This function runs all tests.
     public static native void run();
 }

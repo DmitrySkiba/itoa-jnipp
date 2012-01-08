@@ -21,7 +21,7 @@ public class Casts {
     }
     public interface Interface {
     }
-    
+
     public static class Derived extends Base implements Interface {
     }
 

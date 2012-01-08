@@ -19,7 +19,7 @@ package com.itoa.jnipp.android;
 import android.view.View;
 
 public class ViewOnClickListener implements View.OnClickListener {
-    
+
     /** This class is can be created only from native code.
      */
     private ViewOnClickListener() {

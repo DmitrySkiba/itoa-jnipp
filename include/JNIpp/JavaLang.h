@@ -51,7 +51,7 @@ public:
     /** Wraps \c clazz.
      */
     explicit Class(const jni::LObject& clazz);
-    
+
     /** Returns class' name.
      */
     PString GetName() const;
@@ -77,7 +77,7 @@ typedef ObjectPointer<CharSequence> PCharSequence;
  *
  * Note that while CharSequence represents interface its methods
  *  are not virtual. That is because they are virtual at the
- *  Java side, so calling GetLength() on a CharSequence will 
+ *  Java side, so calling GetLength() on a CharSequence will
  *  indirectly call implementation from the most derived class.
  */
 class CharSequence: public Object {
@@ -86,15 +86,15 @@ public:
     /** Wraps \c charSequence.
      */
     CharSequence(const jni::LObject& charSequence);
-   
+
     /** Returns character at \c index.
      */
     jchar CharAt(jint index) const;
-    
+
     /** Returns length.
      */
     jint GetLength() const;
-    
+
     /** Returns sub-sequence.
      */
     PCharSequence GetSubSequence(jint start,jint end) const;
@@ -138,12 +138,12 @@ public:
     /** Wraps \c string.
      */
     explicit String(const jni::LObject& string);
-    
+
     /** Returns number of unicode characters in the string.
      * The value is NOT cached, #jni function is called each time.
      */
     jint GetLength() const;
-    
+
     /** Returns unicode characters of the string.
      * The value is cached, so you can safely call this method
      *  multiple times.
@@ -155,7 +155,7 @@ public:
      * To get number of characters in the string use GetLength().
      */
     jint GetUTFLength() const;
-    
+
     /** Returns UTF version of the string.
      * The value is cached, so you can safely call this method
      *  multiple times.
@@ -201,7 +201,7 @@ public:
      */
     Throwable();
 
-    /** Creates \c java.lang.Throwable(message) 
+    /** Creates \c java.lang.Throwable(message)
      *  and wraps it; don't call this constructor from
      *  derived classes.
      */
@@ -268,19 +268,19 @@ public:
      */
     Exception();
 
-    /** Creates \c java.lang.Exception(message) 
+    /** Creates \c java.lang.Exception(message)
      *  and wraps it; don't call this constructor from
      *  derived classes.
      */
     explicit Exception(PString message);
 
-    /** Creates \c java.lang.Exception(message,cause) 
+    /** Creates \c java.lang.Exception(message,cause)
      *  and wraps it; don't call this constructor from
      *  derived classes.
      */
     Exception(PString message,PThrowable cause);
 
-    /** Creates \c java.lang.Exception(cause) 
+    /** Creates \c java.lang.Exception(cause)
      *  and wraps it; don't call this constructor from
      *  derived classes.
      */
@@ -322,19 +322,19 @@ public:
      */
     RuntimeException();
 
-    /** Creates \c java.lang.RuntimeException(message) 
+    /** Creates \c java.lang.RuntimeException(message)
      *  and wraps it; don't call this constructor from
      *  derived classes.
      */
     explicit RuntimeException(PString message);
 
-    /** Creates \c java.lang.RuntimeException(message,cause) 
+    /** Creates \c java.lang.RuntimeException(message,cause)
      *  and wraps it; don't call this constructor from
      *  derived classes.
      */
     RuntimeException(PString message,PThrowable cause);
 
-    /** Creates \c java.lang.RuntimeException(cause) 
+    /** Creates \c java.lang.RuntimeException(cause)
      *  and wraps it; don't call this constructor from
      *  derived classes.
      */
@@ -403,7 +403,7 @@ inline ObjectPointer<typename ObjectTypeExtractor<OtherObjectType>::Type> Cast(c
 }
 
 
-/* Since every object is-a \c java.lang.Object we can 
+/* Since every object is-a \c java.lang.Object we can
  *  optimize java::Object cases.
  */
 template <>

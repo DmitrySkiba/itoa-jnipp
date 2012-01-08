@@ -39,7 +39,7 @@
 // TODO Move most of Finalize out of the macro.
 // TODO Get rid of hack behind xJB_THIS.
 
-/** Contains implementation details of JB_ macros; 
+/** Contains implementation details of JB_ macros;
  *  see JavaBinding.h for the list.
  */
 BEGIN_NAMESPACE(jb)
@@ -48,7 +48,7 @@ BEGIN_NAMESPACE(jb)
 
 #ifdef ONLY_FOR_DOXYGEN
 
-/** Sets current class; needs to be defined before using any 
+/** Sets current class; needs to be defined before using any
  *  other JB_ macros.
  *
  * When implementing wrapper or live class \c JB_CURRENT_CLASS
@@ -65,7 +65,7 @@ BEGIN_NAMESPACE(jb)
  * Implementation of MyWrapperClass methods using
  *  JB_ macros like JB_SET() or JB_NEW().
  *
- * #undef JB_CURRENT_CLASS 
+ * #undef JB_CURRENT_CLASS
  * \endcode
  */
 #define JB_CURRENT_CLASS
@@ -133,8 +133,8 @@ BEGIN_NAMESPACE(jb)
  *  it doesn't implement any class methods.
  *
  * Accessor classes are useful when you want to provide
- *  interface to the Java class as a set of global static 
- *  functions (example: \c GC() global function that calls 
+ *  interface to the Java class as a set of global static
+ *  functions (example: \c GC() global function that calls
  *  \c System.gc()).
  */
 #define JB_DEFINE_ACCESSOR(JavaName,FieldsSpec,MethodsSpec) \
@@ -153,13 +153,13 @@ BEGIN_NAMESPACE(jb)
  *  see 12.3.2 "Class Descriptors" in JNI specification.
  *
  * \c FieldsSpec is either
- *  - Single identifier \c NoFields, when no fields are 
+ *  - Single identifier \c NoFields, when no fields are
  *     specified, or
  *  - Identifier \c Fields followed by a number of field
  *     specs of form (\c Tag, \c Name, \c Descriptor).
  *
  * \c MethodSpec is either
- *  - Single identifier \c NoMethods, when no methods are 
+ *  - Single identifier \c NoMethods, when no methods are
  *     specified, or
  *  - Identifier \c Methods followed by a number of method
  *     specs of form (\c Tag, \c Name, \c Descriptor).
@@ -170,7 +170,7 @@ BEGIN_NAMESPACE(jb)
  *    or calling methods (JB_CALL() and the like).
  * - \c Name is field or method name as defined in Java class.
  *    It doesn'tinclude any type or signature information.
- *    To indicate a static field or method start name with a 
+ *    To indicate a static field or method start name with a
  *    plus sign (e.g. \c "+myStaticField", \c "+myStaticMethod").
  * - \c Descriptor is field/method descriptor.
  *    See 12.3.3 "Field Descriptors" or 12.3.4 "Method Descriptors"
@@ -222,16 +222,16 @@ BEGIN_NAMESPACE(jb)
 
 /** Defines Java bindings for the current live class.
  *
- * This macro implements member functions declared by 
- *  JB_LIVE_CLASS() and also defines fields, methods and 
+ * This macro implements member functions declared by
+ *  JB_LIVE_CLASS() and also defines fields, methods and
  *  callbacks that will be used to implement current live class.
- * 
- * See JB_DEFINE_WRAPPER_CLASS() for description of \c JavaName, 
+ *
+ * See JB_DEFINE_WRAPPER_CLASS() for description of \c JavaName,
  *  \c FieldsSpec and \c MethodsSpec.
  *
  * Callback is a member function of a live class which will
  *  be called when corresponding Java method is called.
- *  Java methods which are bound to callbacks must be marked 
+ *  Java methods which are bound to callbacks must be marked
  *  with 'native' keywords.
  *
  * \c CallbacksSpec is either
@@ -241,12 +241,12 @@ BEGIN_NAMESPACE(jb)
  *     specs of form (\c Binding, \c Name, Descriptor), where
  *    - \c Binding specifies function that will be bound to the
  *       Java method (see below).
- *    - \c Name is a \c name of Java method. No indication is 
+ *    - \c Name is a \c name of Java method. No indication is
  *       required for the static methods.
  *    - \c Descriptor is a Java method descriptor.
  *       See 12.3.4 "Methods Descriptors" in JNI specification.
  *
- * \c Binding has the form \c Method(MethodName) where 
+ * \c Binding has the form \c Method(MethodName) where
  *  \c MethodName identifies method in the current live class.
  *
  * Facts about callback methods:
@@ -259,7 +259,7 @@ BEGIN_NAMESPACE(jb)
  * - Callback methods can be static. In this case method must
  *    include extra argument of object type. When static callback
  *    method is bound to non-static Java method that extra argument
- *    is a Java object which called the callback, otherwise it is 
+ *    is a Java object which called the callback, otherwise it is
  *    Java class callback is bound to.
  *
  * \code
@@ -298,7 +298,7 @@ BEGIN_NAMESPACE(jb)
  *  callbacks. Any error during initialization treated as fatal error
  *  and jni::FatalError() is called.
  *
- * Generally you don't need to call this method, it is implicitly 
+ * Generally you don't need to call this method, it is implicitly
  *  called when needed. The only exception is when you need to bind
  *  callbacks to the Java class.
  */
@@ -556,7 +556,7 @@ BEGIN_NAMESPACE(jb)
     }
 
 ///////////////////////////////////////////////// fields
-    
+
 #define xJB_G_FIELDS \
     xJB_JOIN3(g_jb,JB_CURRENT_CLASS,Fields)
 
@@ -631,7 +631,7 @@ BEGIN_NAMESPACE(jb)
     }
 #define xJB_G_CALLBACKS \
     xJB_CALLBACKS_ACCESSOR::Callbacks
-    
+
 #define xJB_DEFINE_CALLBACKS(Callbacks) \
     xJB_DEFINE_NATIVEMETHOD_TAGS(Callbacks) \
     xJB_DEFINE_CALLBACKS_ACCESSOR; \
@@ -714,7 +714,7 @@ BEGIN_NAMESPACE(jb)
         xJB_INIT_CLASS(); \
         return xJB_G_CLASS.clazz; \
     }
-    
+
 #define xJB_IMPLEMENT_INSTANCE_FIELD_ID() \
     jfieldID JB_CURRENT_CLASS::GetInstanceFieldID() { \
         return JB_GET_FIELD_ID(InstanceField); \
@@ -773,7 +773,7 @@ struct ClassDescriptor {
     MethodDescriptor* methods;
     FieldDescriptor* fields;
     const JNINativeMethod* callbacks;
-    
+
     // Initialized in runtime.
     jmethodID superFinalizer;
     java::Class* clazz;
@@ -798,8 +798,8 @@ void InitClassDescriptor(ClassDescriptor& descriptor);
 /* Everything below are implementation details of ConvertCC
  *  function which converts class member function to C callback ready
  *  for JNIEnv::RegisterNatives() method. Class member function can use
- *  JNIpp types like java::PIntArray instead of raw JNI objects like 
- *  jintArray. ConvertCC is used in implementation of Method() callback 
+ *  JNIpp types like java::PIntArray instead of raw JNI objects like
+ *  jintArray. ConvertCC is used in implementation of Method() callback
  *  spec.
  *
  * See documentation for JB_DEFINE_LIVE_CLASS() macro.
@@ -881,7 +881,7 @@ void InitClassDescriptor(ClassDescriptor& descriptor);
 
 template <class T>
 class CCTypeConverter {
-    // All supported types should implement the 
+    // All supported types should implement the
     //  following members:
     //
     // typedef X NativeType;
@@ -1155,13 +1155,13 @@ template <int U,class R>
 inline void* ConvertCC(R(*callback)()) {
     char readme[U-INT_MIN];
     /* If you get here this means that you tried to use static callback
-     *  with zero arguments. First argument of a static callback is 
+     *  with zero arguments. First argument of a static callback is
      *  always present and is of object type (const jni::AbstractObject&).
      */
 }
 
 /* If you get error "no type named 'NativeType' in 'class jb::CCTypeConverter<TYPE>"
- *  this means that your member callback is using unsupported TYPE in arguments or 
+ *  this means that your member callback is using unsupported TYPE in arguments or
  *  return value. See documentation for JB_DEFINE_LIVE_CLASS() for the list
  *  of supported types.
  *

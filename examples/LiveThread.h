@@ -31,7 +31,7 @@ public:
      */
     Thread();
     Thread(java::PString name);
-    
+
     /* Wrapping constructor.
      */
     Thread(const jni::LObject& thread);
@@ -73,7 +73,7 @@ typedef java::ObjectPointer<LiveThread> PLiveThread;
 class LiveThread: public Thread {
     JB_LIVE_CLASS(LiveThread);
 public:
-    
+
     /* Both constructors create instances of LiveThreadJava classes.
      * No wrapping constructor is defined, since it is not a wrapper
      *  class.
